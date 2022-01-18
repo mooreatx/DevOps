@@ -1,0 +1,31 @@
+---
+- hosts: app
+  become: true
+
+  tasks:
+    - name: Intall Python Docker  module.
+      pip:
+        name:
+          - docker-py
+        state: present
+
+    - name: Copy Docker files to remote server.
+      copy:
+        src: /home/ec2-user/docker-apps/web/
+        dest: /home/ec2-user/web
+
+    - name: Ensure Docker image is built from the baseweb Dockerfile.
+      docker_image:
+        name: baseweb
+        source: build
+        build:
+          path: web
+        state: present
+
+    - name: Ensure the test container is running.
+      docker_container:
+        image: baseweb:latest
+        name: baseweb01
+        state: started
+        published_ports:
+          - 8081:80

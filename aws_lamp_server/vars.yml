@@ -1,0 +1,3 @@
+---
+# Domain and hostname variable
+domain: "production"

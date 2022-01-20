@@ -9,4 +9,4 @@ Replace the {ec2-private-ip} hostname prefix in the host.ini with the actual EC2
 * Provide Terraform Template
 
 ## About the Author
-This project was created by [Shawn Moore] (https://www.shawnmoorecisco.blogspot.com/).
+This project was created by [Shawn Moore] (https://shawnmoorecisco.blogspot.com/).
